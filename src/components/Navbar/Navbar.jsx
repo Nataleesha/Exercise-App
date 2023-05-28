@@ -23,7 +23,7 @@ const Navbar = () => {
         />
       </Link>
       <Stack direction="row" gap="40px" alignItems="flex-end">
-        <Link to="/" style={{ borderBottom: "2px solid #ff2625" }}>
+        <Link to="/" style={{ borderBottom: "2px solid #D13F5C" }}>
           Home
         </Link>
         <a href="#exercises">Exercises</a>

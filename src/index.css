@@ -28,5 +28,16 @@ a {
   width: 600px;
   height: auto;
   margin-top: -330px;
-  border-bottom-left-radius: 150px;
+  border-bottom-left-radius: 200px;
+}
+
+.search-btn:hover {
+  color: #d13f5c;
+  border: 1px solid #d13f5c;
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-banner-img {
+    display: none;
+  }
 }
