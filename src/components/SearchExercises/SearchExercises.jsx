@@ -1,15 +1,39 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Stack, Typography, TextField } from "@mui/material";
 
+import BodyPartList from "../../components/BodyPartList/BodyPartList";
 import { fetchData } from "../../utils/fetchData";
 
-const SearchExercises = () => {
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
+  const [bodyParts, setBodyParts] = useState([]);
+
+  useEffect(() => {
+    const fetchBodyPartList = async () => {
+      const bodyPartListData = await fetchData("/exercises/bodyPartList");
+
+      setBodyParts(["all", ...bodyPartListData]);
+      console.log(bodyPartListData);
+    };
+    fetchBodyPartList();
+  }, []);
 
   const handleSearch = async () => {
     if (search) {
-      const data = await fetchData("/exercises");
+      const data = fetchData("/exercises");
       console.log(data);
+
+      const searchedExercises = data.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(search) ||
+          exercise.target.toLowerCase().includes(search) ||
+          exercise.equipment.toLowerCase().includes(search) ||
+          exercise.bodyPart.toLowerCase().includes(search)
+      );
+
+      setSearch("");
+      setExercises(searchedExercises);
+      console.log(exercises);
     }
   };
 
@@ -55,6 +79,13 @@ const SearchExercises = () => {
         >
           Search
         </Button>
+      </Box>
+      <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
+        <BodyPartList
+          data={bodyParts}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
+        />
       </Box>
     </Stack>
   );
