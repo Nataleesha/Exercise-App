@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://exercisedb.p.rapidapi.com";
 axios.defaults.headers.common["X-RapidAPI-Key"] =
-  import.meta.env.VITE_RAPID_API_KEY;
+  "caddf3324cmsh37f357dee75db7cp129e1ajsnc5d712c0eea9";
 axios.defaults.headers.common["X-RapidAPI-Host"] = "exercisedb.p.rapidapi.com";
 
 export const fetchData = async (url) => {
