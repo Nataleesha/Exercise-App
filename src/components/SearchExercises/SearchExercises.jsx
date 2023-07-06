@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Stack, Typography, TextField } from "@mui/material";
+import PropTypes from "prop-types";
 
 import BodyPartList from "../../components/BodyPartList/BodyPartList";
 import { fetchData } from "../../utils/fetchData";
@@ -9,21 +10,19 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
-    const fetchBodyPartList = async () => {
+    const fetchBodyPartsList = async () => {
       const bodyPartListData = await fetchData("/exercises/bodyPartList");
 
       setBodyParts(["all", ...bodyPartListData]);
-      console.log(bodyPartListData);
     };
-    fetchBodyPartList();
+    fetchBodyPartsList();
   }, []);
 
   const handleSearch = async () => {
     if (search) {
-      const data = fetchData("/exercises");
-      console.log(data);
+      const exerciseData = await fetchData("/exercises");
 
-      const searchedExercises = data.filter(
+      const searchedExercises = exerciseData.filter(
         (exercise) =>
           exercise.name.toLowerCase().includes(search) ||
           exercise.target.toLowerCase().includes(search) ||
@@ -31,9 +30,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           exercise.bodyPart.toLowerCase().includes(search)
       );
 
+      console.log(searchedExercises);
       setSearch("");
       setExercises(searchedExercises);
-      console.log(exercises);
     }
   };
 
@@ -80,7 +79,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           Search
         </Button>
       </Box>
-      <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
+      <Box
+        sx={{
+          position: "relative",
+          minHeight: "300px",
+          width: "100%",
+          p: "20px",
+        }}
+      >
         <BodyPartList
           data={bodyParts}
           bodyPart={bodyPart}
@@ -89,6 +95,12 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       </Box>
     </Stack>
   );
+};
+
+SearchExercises.propTypes = {
+  setExercises: PropTypes.func.isRequired,
+  bodyPart: PropTypes.string.isRequired,
+  setBodyPart: PropTypes.func.isRequired,
 };
 
 export default SearchExercises;
