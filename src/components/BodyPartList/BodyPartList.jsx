@@ -34,6 +34,8 @@ const BodyPartList = ({ data, bodyPart, setBodyPart }) => {
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {data.map((item) => (
         <Box
+          paddingTop="25px"
+          paddingBottom="25px"
           key={item.id || item}
           itemID={item.id || item}
           title={item.id || item}
