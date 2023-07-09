@@ -30,7 +30,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           exercise.bodyPart.toLowerCase().includes(search)
       );
 
-      console.log(searchedExercises);
       setSearch("");
       setExercises(searchedExercises);
     }
@@ -63,6 +62,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           }}
         ></TextField>
         <Button
+          href="#exercises"
           className="search-btn"
           sx={{
             bgcolor: "#D13F5C",
@@ -73,6 +73,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             height: "55px",
             position: "absolute",
             right: "0",
+            // action: "#exercises",
           }}
           onClick={handleSearch}
         >
