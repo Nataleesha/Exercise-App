@@ -1,5 +1,6 @@
 import { Typography, Stack, Button } from "@mui/material";
 import PropTypes from "prop-types";
+import { nanoid } from "nanoid";
 
 import icon from "../../assets/images/logo.png";
 
@@ -10,14 +11,17 @@ const Detail = ({ exerciseDetails }) => {
     {
       icon: icon,
       name: bodyPart,
+      id: nanoid(),
     },
     {
       icon: icon,
       name: target,
+      id: nanoid(),
     },
     {
       icon: icon,
       name: equipment,
+      id: nanoid(),
     },
   ];
 
@@ -37,7 +41,7 @@ const Detail = ({ exerciseDetails }) => {
           to improve your mood and gain energy.
         </Typography>
         {extraDetails.map((item) => (
-          <Stack key={item.name} direction="row" gap="24px" alignItems="center">
+          <Stack key={item.id} direction="row" gap="24px" alignItems="center">
             <Button
               sx={{
                 background: "#fff2db",
