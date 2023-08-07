@@ -28,15 +28,15 @@ const ExerciseDetails = () => {
     fetchExercisesData();
   }, [id]);
 
-  console.log("VIDEOS:", exerciseVideos);
-
   return (
     <Box>
       <Detail exerciseDetails={exerciseDetails} />
-      <ExerciseVideos
-        exerciseVideos={exerciseVideos}
-        name={exerciseDetails.name}
-      />
+      {!exerciseVideos.length || !exerciseDetails.name ? null : (
+        <ExerciseVideos
+          exerciseVideos={exerciseVideos}
+          name={exerciseDetails.name}
+        />
+      )}
       <SimilarExercises />
     </Box>
   );
