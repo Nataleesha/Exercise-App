@@ -3,8 +3,12 @@ import PropTypes from "prop-types";
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
   return (
-    <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
-      <Typography variant="h3" mb="33px">
+    <Stack
+      sx={{
+        marginTop: { lg: "100px", xs: "20px" },
+      }}
+    >
+      <Typography variant="h3" mb="50px">
         Watch{" "}
         <span style={{ color: "#D13E5C", textTransform: "capitalize" }}>
           {name}
@@ -15,7 +19,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         justifyContent="flex-start"
         flexWrap="wrap"
         alignItems="center"
-        sx={{ flexDirection: { lg: "row" }, gap: { lg: "60px", xs: "0" } }}
+        sx={{ flexDirection: { lg: "row" }, justifyContent: "space-around" }}
       >
         {exerciseVideos?.slice(0, 6).map((item) => (
           <a
@@ -33,7 +37,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           </a>
         ))}
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

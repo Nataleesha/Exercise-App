@@ -73,7 +73,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             height: "55px",
             position: "absolute",
             right: "0",
-            // action: "#exercises",
           }}
           onClick={handleSearch}
         >
@@ -92,6 +91,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
+          isBodyParts
         />
       </Box>
     </Stack>

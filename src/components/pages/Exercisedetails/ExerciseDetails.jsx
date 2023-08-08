@@ -12,6 +12,8 @@ import SimilarExercises from "../../SimilarExercises/SimilarExercises";
 const ExerciseDetails = () => {
   const [exerciseDetails, setExerciseDetails] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,13 +25,28 @@ const ExerciseDetails = () => {
         `/search?query=${exerciseDetailsData.name}`
       );
       setExerciseVideos(exerciseVideosData.contents);
+
+      const exerciseVideoData = await fetchData(
+        `exercises/target/${exerciseDetailsData.target}`
+      );
+      setTargetMuscleExercises(exerciseVideoData);
+
+      const exerciseEquipmentData = await fetchData(
+        `exercises/equipment/${exerciseDetailsData.equipment}`
+      );
+      setEquipmentExercises(exerciseEquipmentData);
     };
 
     fetchExercisesData();
   }, [id]);
 
   return (
-    <Box>
+    <Box
+      textAlign="center"
+      padding="0 30px"
+      margin="0 auto"
+      sx={{ width: { sm: "500px", md: "830px", lg: "1200px" } }}
+    >
       <Detail exerciseDetails={exerciseDetails} />
       {!exerciseVideos.length || !exerciseDetails.name ? null : (
         <ExerciseVideos
@@ -37,7 +54,12 @@ const ExerciseDetails = () => {
           name={exerciseDetails.name}
         />
       )}
-      <SimilarExercises />
+      {!targetMuscleExercises.length || !equipmentExercises.length ? null : (
+        <SimilarExercises
+          targetMuscleExercises={targetMuscleExercises}
+          equipmentExercises={equipmentExercises}
+        />
+      )}
     </Box>
   );
 };

@@ -11,10 +11,12 @@ const Navbar = () => {
       <Stack
         direction="row"
         justifyContent="space-around"
+        alignItems="center"
         px="20px"
         sx={{
           gap: { sm: "122px", xs: "40px" },
           mt: { sm: "32px", xs: "20px" },
+          mb: { sm: "32px", xs: "20px" },
           justifyContent: "none",
         }}
       >
