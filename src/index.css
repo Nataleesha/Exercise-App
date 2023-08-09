@@ -85,25 +85,21 @@ a {
   font-size: 25px;
   position: absolute;
   bottom: -40px;
-  right: 0;
+  right: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
 }
 
 .right-arrow {
-  right: 70px;
-}
-
-.right-arrow:hover,
-.left-arrow:hover {
-  transform: scale(1.1, 1.1);
+  justify-content: space-between;
+  left: 10px;
 }
 
 .exercise-video {
   display: flex;
   flex-direction: column;
-  width: 380px;
-  height: 340px;
+  width: 360px;
+  height: 330px;
   text-decoration: none;
 }
 
@@ -116,4 +112,18 @@ a {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.btn-swipe:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.detail-image-container {
+  width: 360px;
+  height: 360px;
+}
+
+.detail-image {
+  border-radius: 10px;
+  object-fit: contain;
 }

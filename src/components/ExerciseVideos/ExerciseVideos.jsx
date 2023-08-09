@@ -8,7 +8,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         marginTop: { lg: "100px", xs: "20px" },
       }}
     >
-      <Typography variant="h3" mb="50px">
+      <Typography variant="h4" mb="50px">
         Watch{" "}
         <span style={{ color: "#D13E5C", textTransform: "capitalize" }}>
           {name}
@@ -21,7 +21,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         alignItems="center"
         sx={{
           flexDirection: { lg: "row" },
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           marginBottom: "60px",
         }}
       >
@@ -43,10 +43,10 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                 variant="h6"
                 sx={{
                   display: "-webkit-box",
-                  "-webkit-box-orient": "vertical",
-                  "-webkit-line-clamp": "1",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: "1",
                   overflow: "hidden",
-                  "text-overflow": "ellipsis",
+                  textOverflow: "ellipsis",
                 }}
               >
                 {item.video.title}

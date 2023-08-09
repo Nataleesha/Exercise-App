@@ -22,7 +22,7 @@ const LeftArrow = () => {
         >
           <path
             d="M6 12H18M6 12L11 7M6 12L11 17"
-            stroke="#000000"
+            stroke="#4e2626"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -48,7 +48,7 @@ const RightArrow = () => {
         >
           <path
             d="M6 12H18M18 12L13 7M18 12L13 17"
-            stroke="#000000"
+            stroke="#4e2626"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

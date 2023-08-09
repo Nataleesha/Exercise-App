@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 
 import icon from "../../assets/images/logo.png";
+import Loader from "../Loader/Loader";
 
 const Detail = ({ exerciseDetails }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetails;
@@ -31,21 +32,31 @@ const Detail = ({ exerciseDetails }) => {
         {name}
       </Typography>
       <Stack
-        gap="60px"
+        justifyContent="center"
+        gap="50px"
         sx={{
           flexDirection: { lg: "row" },
           alignItems: "center",
         }}
       >
-        <div>
-          <img
-            src={gifUrl}
-            alt={name}
-            loading="lazy"
-            className="detail-image"
-          />
+        <div className="detail-image-container">
+          {!gifUrl ? (
+            <Loader />
+          ) : (
+            <img
+              src={gifUrl}
+              alt={name}
+              loading="lazy"
+              className="detail-image"
+            />
+          )}
         </div>
-        <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
+        <Stack
+          sx={{
+            gap: { lg: "35px", xs: "20px" },
+            width: { xs: "100%", lg: "46%" },
+          }}
+        >
           <Typography variant="h6" textAlign="left">
             Exercises keep you strong.{" "}
             <span style={{ textTransform: "capitalize" }}>{name}</span> {"  "}
@@ -60,18 +71,20 @@ const Detail = ({ exerciseDetails }) => {
                 sx={{
                   background: "#fff2db",
                   borderRadius: "50%",
-                  width: "70px",
-                  height: "70px",
+                  padding: "0",
+                  alignItems: "center",
+                  width: "55px",
+                  height: "60px",
                 }}
               >
                 <img
                   src={item.icon}
                   alt={bodyPart}
-                  width="50px"
-                  height="50px"
+                  width="30px"
+                  height="30px"
                 />
               </Button>
-              <Typography variant="h6" textTransform="capitalize">
+              <Typography variant="subtitle1" textTransform="capitalize">
                 {item.name}
               </Typography>
             </Stack>

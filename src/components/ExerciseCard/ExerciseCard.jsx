@@ -5,7 +5,13 @@ import PropTypes from "prop-types";
 const ExerciseCard = ({ exercise }) => {
   return (
     <Link className="exercise-card" to={`/exercise/${exercise.id}`}>
-      <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
+      <img
+        src={exercise.gifUrl}
+        alt={exercise.name}
+        loading="lazy"
+        width="300px"
+        height="300px"
+      />
       <Stack direction="row" marginTop="15px" marginBottom="15px">
         <Button
           sx={{
