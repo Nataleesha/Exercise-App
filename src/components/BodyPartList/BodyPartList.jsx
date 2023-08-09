@@ -41,6 +41,7 @@ const BodyPartList = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
           itemID={item.id || item}
           title={item.id || item}
           m="0 30px"
+          sx={{ ":first-child": { marginLeft: 0 } }}
         >
           {isBodyParts ? (
             <BodyPart

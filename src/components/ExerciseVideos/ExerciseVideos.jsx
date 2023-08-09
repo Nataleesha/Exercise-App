@@ -31,8 +31,10 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           >
             <img src={item.video.thumbnails[0].url} alt={item.video.title} />
             <Box>
-              <Typography variant="h5">{item.video.title}</Typography>
-              <Typography variant="h6">{item.video.channelName}</Typography>
+              <Typography variant="h6">{item.video.title}</Typography>
+              <Typography variant="subtitle1">
+                {item.video.channelName}
+              </Typography>
             </Box>
           </a>
         ))}

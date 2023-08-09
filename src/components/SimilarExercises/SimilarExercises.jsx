@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
 import BodyPartList from "../BodyPartList/BodyPartList";
@@ -9,13 +9,13 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
       <Typography variant="h3">
         Exercises targeting the same muscle group
       </Typography>
-      <Stack direction="row" sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative", marginBottom: "70px" }}>
         <BodyPartList data={targetMuscleExercises} />
-      </Stack>
+      </Box>
       <Typography variant="h3">Exercises with the same equipment</Typography>
-      <Stack direction="row" sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative", marginBottom: "70px" }}>
         <BodyPartList data={equipmentExercises} />
-      </Stack>
+      </Box>
     </Box>
   );
 };
