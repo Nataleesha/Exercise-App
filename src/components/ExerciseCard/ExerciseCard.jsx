@@ -6,38 +6,37 @@ const ExerciseCard = ({ exercise }) => {
   return (
     <Link className="exercise-card" to={`/exercise/${exercise.id}`}>
       <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
-      <Stack direction="row" marginTop="15px">
+      <Stack direction="row" marginTop="15px" marginBottom="15px">
         <Button
           sx={{
-            ml: "21px",
+            mr: "20px",
             color: "#fff",
             background: "#ffa9a9",
             fontSize: "15px",
             borderRadius: "20px",
             textTransform: "capitalize",
+            ":hover": { backgroundColor: "#fb9393" },
           }}
         >
           {exercise.bodyPart}
         </Button>
         <Button
           sx={{
-            ml: "21px",
             color: "#fff",
             background: "#fcc757",
             fontSize: "14px",
             borderRadius: "20px",
             textTransform: "capitalize",
+            ":hover": { backgroundColor: "#f8be42" },
           }}
         >
           {exercise.target}
         </Button>
       </Stack>
       <Typography
-        color="#000"
+        color="#1a212f"
+        textAlign="left"
         fontWeight="bold"
-        mt="11px"
-        ml="21px"
-        pb="10px"
         textTransform="capitalize"
         fontSize="20px"
       >

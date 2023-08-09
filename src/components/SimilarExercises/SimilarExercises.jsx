@@ -5,15 +5,15 @@ import BodyPartList from "../BodyPartList/BodyPartList";
 
 const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
   return (
-    <Box sx={{ mt: { lg: "100px", xs: "0" } }}>
+    <Box marginTop="0">
       <Typography variant="h3">
         Exercises targeting the same muscle group
       </Typography>
-      <Box sx={{ position: "relative", marginBottom: "70px" }}>
+      <Box sx={{ position: "relative", marginBottom: "80px" }}>
         <BodyPartList data={targetMuscleExercises} />
       </Box>
       <Typography variant="h3">Exercises with the same equipment</Typography>
-      <Box sx={{ position: "relative", marginBottom: "70px" }}>
+      <Box sx={{ position: "relative", marginBottom: "80px" }}>
         <BodyPartList data={equipmentExercises} />
       </Box>
     </Box>

@@ -51,8 +51,7 @@ a {
   height: 400px;
   margin-top: 15px;
   border-top: 4px solid #d13f5c;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   text-decoration: none;
   display: flex;
   justify-content: space-between;
@@ -86,13 +85,13 @@ a {
   font-size: 25px;
   position: absolute;
   bottom: -40px;
-  right: 80px;
+  right: 0;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
 }
 
 .right-arrow {
-  right: 140px;
+  right: 70px;
 }
 
 .right-arrow:hover,
@@ -103,8 +102,18 @@ a {
 .exercise-video {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 387px;
-  height: 381px;
+  width: 380px;
+  height: 340px;
   text-decoration: none;
+}
+
+.video-image {
+  border-radius: 8px;
+  margin-bottom: 17px;
+}
+
+.btn-swipe {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

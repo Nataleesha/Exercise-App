@@ -7,15 +7,28 @@ import "react-horizontal-scrolling-menu/dist/styles.css";
 import BodyPart from "../BodyPart/BodyPart";
 import ExerciseCard from "../ExerciseCard/ExerciseCard";
 
-import leftArrowIcon from "../../assets/images/arrow-left.png";
-import rightArrowIcon from "../../assets/images/arrow-right.png";
-
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
     <Typography onClick={() => scrollPrev()} className="right-arrow">
-      <img src={leftArrowIcon} alt="arrow-left" width="50px" />
+      <button className="btn-swipe">
+        <svg
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12H18M6 12L11 7M6 12L11 17"
+            stroke="#000000"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
     </Typography>
   );
 };
@@ -25,7 +38,23 @@ const RightArrow = () => {
 
   return (
     <Typography onClick={() => scrollNext()} className="left-arrow">
-      <img src={rightArrowIcon} alt="arrow-right" width="50px" />
+      <button className="btn-swipe">
+        <svg
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12H18M18 12L13 7M18 12L13 17"
+            stroke="#000000"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
     </Typography>
   );
 };
@@ -41,7 +70,7 @@ const BodyPartList = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
           itemID={item.id || item}
           title={item.id || item}
           m="0 30px"
-          sx={{ ":first-child": { marginLeft: 0 } }}
+          sx={{ ":first-of-type": { marginLeft: 0 } }}
         >
           {isBodyParts ? (
             <BodyPart

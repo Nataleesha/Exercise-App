@@ -19,7 +19,11 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         justifyContent="flex-start"
         flexWrap="wrap"
         alignItems="center"
-        sx={{ flexDirection: { lg: "row" }, justifyContent: "space-around" }}
+        sx={{
+          flexDirection: { lg: "row" },
+          justifyContent: "space-around",
+          marginBottom: "60px",
+        }}
       >
         {exerciseVideos?.slice(0, 6).map((item) => (
           <a
@@ -29,9 +33,24 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={item.video.thumbnails[0].url} alt={item.video.title} />
+            <img
+              src={item.video.thumbnails[0].url}
+              alt={item.video.title}
+              className="video-image"
+            />
             <Box>
-              <Typography variant="h6">{item.video.title}</Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  display: "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  overflow: "hidden",
+                  "text-overflow": "ellipsis",
+                }}
+              >
+                {item.video.title}
+              </Typography>
               <Typography variant="subtitle1">
                 {item.video.channelName}
               </Typography>
