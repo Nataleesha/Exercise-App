@@ -5,7 +5,7 @@ import BodyPartList from "../BodyPartList/BodyPartList";
 
 const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
   return (
-    <Box marginTop="0">
+    <Box marginTop="0" id="exercises">
       <Typography variant="h4">
         Exercises targeting the same muscle group
       </Typography>
